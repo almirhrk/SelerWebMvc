@@ -1,12 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<SalesWebMvcContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebMvcContext") ?? throw new InvalidOperationException("Connection string 'SalesWebMvcContext' not found.")));
+using System.Data.Common;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<SalesWebMvcContext>
+    (options => options.UseMySql(
+        "server=localhost;initial catalog=SalesWebMvc;uid=root;pwd=12345678",
+        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.28-mysql")));
+
+
+
 
 var app = builder.Build();
 
@@ -30,3 +37,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+
+// 258. Adaptação para MySQL e primeira migration
