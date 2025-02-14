@@ -57,4 +57,4 @@ if (!app.Environment.IsDevelopment ())
 
 
 
-// 264. Tela simples de cadastro
+// 267. deletar vendedor
