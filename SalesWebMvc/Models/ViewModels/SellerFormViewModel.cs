@@ -3,7 +3,7 @@
     public class SellerFormViewModel
     {
         public Seller Seller { get; set; }
-        public ICollection<Department> Departmets { get; set; }
+        public ICollection<Department> Departments { get; set; }
 
     }
 }
