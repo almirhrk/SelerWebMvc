@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<SalesWebMvcContext>
     (options => options.UseMySql(
-        "server=localhost;initial catalog=SalesWebMvc;uid=root;pwd=12345678",
+        "server=localhost;initial catalog=SalesWebMvc;uid=root;pwd=admin",
         Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.28-mysql")));
 
 
